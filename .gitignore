@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Roku build artifacts
+out/
+*.zip
+*.pkg
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+

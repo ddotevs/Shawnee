@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ************************************************************
+     * ContentTask.xml - Task to load JSON content
+     * Supports remote (GitHub) and local fallback
+     ************************************************************ -->
+
+<component name="ContentTask" extends="Task">
+    <interface>
+        <!-- Remote URL for content (GitHub raw URL) -->
+        <field id="contentUrl" type="string" value="" />
+        <!-- Local fallback path -->
+        <field id="contentPath" type="string" value="pkg:/content/content.json" />
+        <!-- Output: parsed content -->
+        <field id="content" type="assocarray" />
+        <!-- Output: error message if any -->
+        <field id="error" type="string" />
+        <!-- Output: content source (remote/local) -->
+        <field id="source" type="string" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/tasks/ContentTask.brs" />
+</component>

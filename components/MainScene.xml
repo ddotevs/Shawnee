@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ************************************************************
+     * MainScene.xml - Main SceneGraph Scene
+     * Shawnee Channel - Dynamic Content Display
+     ************************************************************ -->
+
+<component name="MainScene" extends="Scene">
+    <interface>
+        <field id="contentId" type="string" />
+        <field id="mediaType" type="string" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+
+    <children>
+        <!-- Background -->
+        <Rectangle
+            id="background"
+            width="1920"
+            height="1080"
+            color="#1a1a2e" />
+
+        <!-- Gradient overlay for depth -->
+        <Rectangle
+            id="gradientOverlay"
+            width="1920"
+            height="300"
+            translation="[0, 780]"
+            color="#0f0f1a"
+            opacity="0.8" />
+
+        <!-- Header Section -->
+        <LayoutGroup
+            id="headerGroup"
+            translation="[80, 50]"
+            layoutDirection="vert"
+            itemSpacings="[8]">
+
+            <Label
+                id="channelTitle"
+                text="Shawnee"
+                font="font:LargeBoldSystemFont"
+                color="#e94560" />
+
+            <Label
+                id="welcomeMessage"
+                text="Loading..."
+                font="font:SmallSystemFont"
+                color="#888888" />
+        </LayoutGroup>
+
+        <!-- Category Menu (Left Side) -->
+        <LabelList
+            id="categoryList"
+            translation="[80, 180]"
+            itemSize="[350, 65]"
+            numRows="6"
+            textHorizAlign="left"
+            color="#888888"
+            focusedColor="#ffffff"
+            focusBitmapBlendColor="#e94560"
+            visible="true" />
+
+        <!-- Vertical separator line -->
+        <Rectangle
+            id="separator"
+            translation="[460, 180]"
+            width="2"
+            height="600"
+            color="#333333" />
+
+        <!-- Items Grid (Right Side) -->
+        <MarkupGrid
+            id="itemsGrid"
+            translation="[500, 180]"
+            itemSize="[320, 220]"
+            itemSpacing="[30, 30]"
+            numColumns="4"
+            numRows="2"
+            drawFocusFeedback="true"
+            focusBitmapUri=""
+            focusFootprintBitmapUri=""
+            itemComponentName="ItemTile"
+            visible="true" />
+
+        <!-- Detail Panel (shown when item selected) -->
+        <DetailPanel
+            id="detailPanel"
+            translation="[0, 0]"
+            visible="false" />
+
+        <!-- Loading Indicator -->
+        <LayoutGroup
+            id="loadingGroup"
+            translation="[960, 540]"
+            horizAlignment="center"
+            vertAlignment="center"
+            layoutDirection="vert"
+            itemSpacings="[20]">
+
+            <BusySpinner
+                id="spinner"
+                poster="pkg:/images/spinner.png"
+                visible="true" />
+
+            <Label
+                id="loadingText"
+                text="Loading content..."
+                font="font:MediumSystemFont"
+                color="#888888"
+                horizAlign="center" />
+        </LayoutGroup>
+
+        <!-- Footer -->
+        <Label
+            id="footerText"
+            translation="[80, 1000]"
+            text="◀ ▶ Categories  •  ▲ ▼ Items  •  OK Select  •  BACK Return"
+            font="font:SmallSystemFont"
+            color="#555555" />
+    </children>
+</component>

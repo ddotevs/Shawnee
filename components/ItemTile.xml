@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ************************************************************
+     * ItemTile.xml - Grid Item Tile Component
+     * Displays image, title, and short description
+     ************************************************************ -->
+
+<component name="ItemTile" extends="Group">
+    <interface>
+        <field id="itemContent" type="node" onChange="onContentChanged" />
+        <field id="focusPercent" type="float" onChange="onFocusChanged" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/ItemTile.brs" />
+
+    <children>
+        <!-- Tile Container -->
+        <Rectangle
+            id="tileBackground"
+            width="320"
+            height="220"
+            color="#16213e"
+            cornerRadius="12" />
+
+        <!-- Focus highlight border -->
+        <Rectangle
+            id="focusBorder"
+            width="324"
+            height="224"
+            translation="[-2, -2]"
+            color="#e94560"
+            cornerRadius="14"
+            opacity="0.0" />
+
+        <!-- Image Container -->
+        <Rectangle
+            id="imageContainer"
+            width="320"
+            height="130"
+            color="#0f0f1a"
+            cornerRadius="12" />
+
+        <!-- Poster Image -->
+        <Poster
+            id="itemPoster"
+            width="280"
+            height="100"
+            translation="[20, 15]"
+            loadingBitmapUri="pkg:/images/placeholder.png"
+            failedBitmapUri="pkg:/images/placeholder.png"
+            loadDisplayMode="scaleToZoom" />
+
+        <!-- Emergency badge -->
+        <Rectangle
+            id="emergencyBadge"
+            translation="[10, 10]"
+            width="80"
+            height="24"
+            color="#e94560"
+            cornerRadius="4"
+            visible="false">
+            <Label
+                text="URGENT"
+                translation="[8, 2]"
+                font="font:SmallestSystemFont"
+                color="#ffffff" />
+        </Rectangle>
+
+        <!-- Text Container -->
+        <LayoutGroup
+            id="textContainer"
+            translation="[15, 140]"
+            layoutDirection="vert"
+            itemSpacings="[4]">
+
+            <Label
+                id="titleLabel"
+                width="290"
+                maxLines="1"
+                font="font:SmallBoldSystemFont"
+                color="#ffffff"
+                ellipsisText="..." />
+
+            <Label
+                id="descriptionLabel"
+                width="290"
+                maxLines="2"
+                font="font:SmallestSystemFont"
+                color="#888888"
+                ellipsisText="..." />
+        </LayoutGroup>
+    </children>
+</component>
+
