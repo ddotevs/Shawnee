@@ -59,14 +59,19 @@ end sub
 sub onFocusChanged()
     focusPercent = m.top.focusPercent
 
-    ' Animate focus border opacity
-    m.focusBorder.opacity = focusPercent
+    ' Animate focus border opacity (subtle)
+    m.focusBorder.opacity = focusPercent * 0.7
 
-    ' Scale effect on focus
+    ' Subtle background change on focus and control title scrolling
     if focusPercent > 0.5
-        m.tileBackground.color = "#1e2a4a"
+        m.tileBackground.color = "#1e3a5f"
+        ' Start scrolling the title when focused
+        m.titleLabel.isScrolling = true
     else
         m.tileBackground.color = "#16213e"
+        ' Stop scrolling when not focused
+        m.titleLabel.isScrolling = false
     end if
 end sub
+
 

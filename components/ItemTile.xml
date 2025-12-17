@@ -27,7 +27,7 @@
             width="324"
             height="224"
             translation="[-2, -2]"
-            color="#e94560"
+            color="#3b5998"
             cornerRadius="14"
             opacity="0.0" />
 
@@ -45,8 +45,6 @@
             width="280"
             height="100"
             translation="[20, 15]"
-            loadingBitmapUri="pkg:/images/placeholder.png"
-            failedBitmapUri="pkg:/images/placeholder.png"
             loadDisplayMode="scaleToZoom" />
 
         <!-- Emergency badge -->
@@ -72,13 +70,15 @@
             layoutDirection="vert"
             itemSpacings="[4]">
 
-            <Label
+            <ScrollingLabel
                 id="titleLabel"
                 width="290"
-                maxLines="1"
+                maxWidth="290"
                 font="font:SmallBoldSystemFont"
                 color="#ffffff"
-                ellipsisText="..." />
+                repeatCount="-1"
+                scrollSpeed="40"
+                isScrolling="false" />
 
             <Label
                 id="descriptionLabel"
@@ -90,4 +90,5 @@
         </LayoutGroup>
     </children>
 </component>
+
 

@@ -32,9 +32,9 @@
         <!-- Header Section -->
         <LayoutGroup
             id="headerGroup"
-            translation="[80, 50]"
+            translation="[80, 40]"
             layoutDirection="vert"
-            itemSpacings="[8]">
+            itemSpacings="[5]">
 
             <Label
                 id="channelTitle"
@@ -43,36 +43,132 @@
                 color="#e94560" />
 
             <Label
-                id="welcomeMessage"
-                text="Loading..."
+                id="wifiLabel"
+                text="WiFi: UCFiber_Evans"
+                font="font:SmallSystemFont"
+                color="#4ade80" />
+
+            <Label
+                id="wifiPass"
+                text="Pass: CindyIsGreat"
                 font="font:SmallSystemFont"
                 color="#888888" />
+        </LayoutGroup>
+
+        <!-- Weather and Lake Level Info Panel (Centered) -->
+        <LayoutGroup
+            id="infoPanel"
+            translation="[500, 30]"
+            layoutDirection="horiz"
+            itemSpacings="[40]">
+
+            <!-- Weather Card -->
+            <Rectangle
+                id="weatherCard"
+                width="380"
+                height="150"
+                color="#16213e"
+                cornerRadius="12">
+
+                <LayoutGroup
+                    id="weatherContent"
+                    translation="[25, 15]"
+                    layoutDirection="vert"
+                    itemSpacings="[6]">
+
+                    <Label
+                        id="weatherLabel"
+                        text="CURRENT WEATHER"
+                        font="font:SmallSystemFont"
+                        color="#888888" />
+
+                    <Label
+                        id="weatherTemp"
+                        text="--"
+                        font="font:LargeBoldSystemFont"
+                        color="#ffffff" />
+
+                    <Label
+                        id="weatherDesc"
+                        text="Loading..."
+                        font="font:MediumSystemFont"
+                        color="#4ade80"
+                        width="330" />
+                </LayoutGroup>
+            </Rectangle>
+
+            <!-- Lake Level Card -->
+            <Rectangle
+                id="lakeCard"
+                width="480"
+                height="150"
+                color="#16213e"
+                cornerRadius="12">
+
+                <LayoutGroup
+                    id="lakeContent"
+                    translation="[25, 15]"
+                    layoutDirection="vert"
+                    itemSpacings="[6]">
+
+                    <Label
+                        id="lakeLabel"
+                        text="LAKE HARTWELL LEVEL"
+                        font="font:SmallSystemFont"
+                        color="#888888" />
+
+                    <LayoutGroup
+                        layoutDirection="horiz"
+                        itemSpacings="[10]">
+
+                        <Label
+                            id="lakeLevel"
+                            text="---.--"
+                            font="font:LargeBoldSystemFont"
+                            color="#38bdf8" />
+
+                        <Label
+                            id="lakeFeet"
+                            text="ft MSL"
+                            font="font:MediumSystemFont"
+                            color="#888888"
+                            translation="[0, 8]" />
+                    </LayoutGroup>
+
+                    <Label
+                        id="lakeBelowPool"
+                        text="Loading..."
+                        font="font:MediumSystemFont"
+                        color="#fbbf24"
+                        width="430" />
+                </LayoutGroup>
+            </Rectangle>
         </LayoutGroup>
 
         <!-- Category Menu (Left Side) -->
         <LabelList
             id="categoryList"
-            translation="[80, 180]"
+            translation="[80, 200]"
             itemSize="[350, 65]"
-            numRows="6"
+            numRows="5"
             textHorizAlign="left"
             color="#888888"
             focusedColor="#ffffff"
-            focusBitmapBlendColor="#e94560"
+            focusBitmapBlendColor="#3b5998"
             visible="true" />
 
         <!-- Vertical separator line -->
         <Rectangle
             id="separator"
-            translation="[460, 180]"
+            translation="[460, 200]"
             width="2"
-            height="600"
+            height="550"
             color="#333333" />
 
         <!-- Items Grid (Right Side) -->
         <MarkupGrid
             id="itemsGrid"
-            translation="[500, 180]"
+            translation="[500, 200]"
             itemSize="[320, 220]"
             itemSpacing="[30, 30]"
             numColumns="4"
@@ -98,11 +194,6 @@
             layoutDirection="vert"
             itemSpacings="[20]">
 
-            <BusySpinner
-                id="spinner"
-                poster="pkg:/images/spinner.png"
-                visible="true" />
-
             <Label
                 id="loadingText"
                 text="Loading content..."
@@ -115,7 +206,7 @@
         <Label
             id="footerText"
             translation="[80, 1000]"
-            text="◀ ▶ Categories  •  ▲ ▼ Items  •  OK Select  •  BACK Return"
+            text="LEFT/RIGHT: Categories   |   UP/DOWN: Items   |   OK: Select   |   BACK: Return"
             font="font:SmallSystemFont"
             color="#555555" />
     </children>

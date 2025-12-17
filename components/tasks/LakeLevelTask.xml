@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ************************************************************
+     * LakeLevelTask.xml - Task to fetch Lake Hartwell water level
+     * Scrapes data from mylakehartwell.com/level
+     ************************************************************ -->
+
+<component name="LakeLevelTask" extends="Task">
+    <interface>
+        <!-- Input: URL to scrape -->
+        <field id="url" type="string" value="http://www.mylakehartwell.com/level" />
+        <!-- Output: water level data -->
+        <field id="waterLevel" type="string" />
+        <field id="levelDate" type="string" />
+        <field id="levelTime" type="string" />
+        <field id="belowFullPool" type="string" />
+        <field id="fullPool" type="string" value="660.00" />
+        <!-- Output: error message if any -->
+        <field id="error" type="string" />
+        <!-- Output: success flag -->
+        <field id="success" type="boolean" value="false" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/tasks/LakeLevelTask.brs" />
+</component>
+

@@ -32,8 +32,9 @@ sub init()
     ' Tags
     m.tagsLabel = m.top.findNode("tagsLabel")
 
-    ' Details scroll
-    m.detailsScroll = m.top.findNode("detailsScroll")
+    ' Extended details and bottom section
+    m.bottomSection = m.top.findNode("bottomSection")
+    m.extendedDetails = m.top.findNode("extendedDetails")
 end sub
 
 sub onItemDataChanged()
@@ -50,7 +51,7 @@ sub onItemDataChanged()
     else if item.icon <> invalid
         m.detailPoster.uri = item.icon
     else
-        m.detailPoster.uri = "pkg:/images/placeholder.png"
+        m.detailPoster.uri = ""
     end if
 
     ' Set title
@@ -105,7 +106,7 @@ sub onItemDataChanged()
     ' Rating
     if item.rating <> invalid
         m.ratingLabel.visible = true
-        m.ratingLabel.text = "★ " + item.rating.toStr()
+        m.ratingLabel.text = "Rating: " + item.rating.toStr()
     else
         m.ratingLabel.visible = false
     end if
@@ -131,7 +132,7 @@ sub onItemDataChanged()
         m.tagsLabel.visible = true
         tagStr = ""
         for each tag in item.tags
-            if tagStr <> "" then tagStr = tagStr + "  •  "
+            if tagStr <> "" then tagStr = tagStr + "  |  "
             tagStr = tagStr + tag
         end for
         m.tagsLabel.text = tagStr
@@ -151,30 +152,30 @@ sub buildExtendedDetails(item as Object)
         details = item.details
 
         if details.networkName <> invalid
-            detailText = detailText + "WiFi Network: " + details.networkName + chr(10)
+            detailText = detailText + "WiFi: " + details.networkName
             if details.password <> invalid
-                detailText = detailText + "Password: " + details.password + chr(10)
+                detailText = detailText + "   |   Password: " + details.password
             end if
+            detailText = detailText + "     "
         end if
 
         if details.checkInTime <> invalid
-            detailText = detailText + "Check-in: " + details.checkInTime + chr(10)
+            detailText = detailText + "Check-in: " + details.checkInTime + "     "
         end if
         if details.checkOutTime <> invalid
-            detailText = detailText + "Check-out: " + details.checkOutTime + chr(10)
+            detailText = detailText + "Check-out: " + details.checkOutTime + "     "
         end if
         if details.keyLocation <> invalid
-            detailText = detailText + chr(10) + "Key: " + details.keyLocation + chr(10)
+            detailText = detailText + "Key: " + details.keyLocation + "     "
         end if
 
         if details.instructions <> invalid
-            detailText = detailText + chr(10) + details.instructions + chr(10)
+            detailText = detailText + details.instructions + "     "
         end if
     end if
 
     ' Emergency contacts
     if item.contacts <> invalid and item.contacts.count() > 0
-        detailText = detailText + chr(10) + "EMERGENCY CONTACTS:" + chr(10)
         for each contact in item.contacts
             detailText = detailText + contact.name + ": " + contact.phone
             if contact.available <> invalid
@@ -186,24 +187,24 @@ sub buildExtendedDetails(item as Object)
 
     ' House rules
     if item.rules <> invalid and item.rules.count() > 0
-        detailText = detailText + chr(10) + "HOUSE RULES:" + chr(10)
+        detailText = detailText + "RULES: "
         for each rule in item.rules
-            detailText = detailText + "• " + rule + chr(10)
+            detailText = detailText + rule + "   |   "
         end for
     end if
 
     ' Appliances
     if item.appliances <> invalid and item.appliances.count() > 0
-        detailText = detailText + chr(10) + "APPLIANCES:" + chr(10)
+        detailText = detailText + "APPLIANCES: "
         for each appliance in item.appliances
             detailText = detailText + appliance.name
             if appliance.brand <> invalid
                 detailText = detailText + " (" + appliance.brand + ")"
             end if
-            detailText = detailText + chr(10)
             if appliance.instructions <> invalid
-                detailText = detailText + "  → " + appliance.instructions + chr(10)
+                detailText = detailText + " - " + appliance.instructions
             end if
+            detailText = detailText + "   |   "
         end for
     end if
 
@@ -214,7 +215,7 @@ sub buildExtendedDetails(item as Object)
             if dietStr <> "" then dietStr = dietStr + ", "
             dietStr = dietStr + diet
         end for
-        detailText = detailText + chr(10) + "Dietary: " + dietStr + chr(10)
+        detailText = detailText + "Dietary: " + dietStr + "     "
     end if
 
     ' Amenities
@@ -224,23 +225,17 @@ sub buildExtendedDetails(item as Object)
             if amenStr <> "" then amenStr = amenStr + ", "
             amenStr = amenStr + amenity
         end for
-        detailText = detailText + chr(10) + "Amenities: " + amenStr + chr(10)
+        detailText = detailText + "Amenities: " + amenStr + "     "
     end if
 
-    ' Price details
-    if item.priceDetails <> invalid
-        detailText = detailText + chr(10) + "PRICING:" + chr(10)
-        for each key in item.priceDetails.keys()
-            detailText = detailText + "  " + key + ": " + item.priceDetails[key].toStr() + chr(10)
-        end for
-    end if
-
-    ' Show scroll text if we have extended details
+    ' Show bottom section if we have extended details
     if detailText <> ""
-        m.detailsScroll.visible = true
-        m.detailsScroll.text = detailText
+        m.bottomSection.visible = true
+        m.extendedDetails.visible = true
+        m.extendedDetails.text = detailText
     else
-        m.detailsScroll.visible = false
+        m.bottomSection.visible = false
+        m.extendedDetails.visible = false
     end if
 end sub
 
@@ -258,7 +253,8 @@ sub clearAllFields()
     m.reservationLabel.visible = false
     m.tipsCard.visible = false
     m.tagsLabel.visible = false
-    m.detailsScroll.visible = false
+    m.bottomSection.visible = false
+    m.extendedDetails.visible = false
 end sub
 
 function safeString(value as Dynamic) as String
@@ -267,7 +263,6 @@ function safeString(value as Dynamic) as String
 end function
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
-    ' Detail panel doesn't handle keys directly - MainScene handles back
+    ' Let MainScene handle all key events including back button
     return false
 end function
-

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ************************************************************
+     * WeatherTask.xml - Task to fetch current weather data
+     * Uses Open-Meteo API (free, no API key required)
+     ************************************************************ -->
+
+<component name="WeatherTask" extends="Task">
+    <interface>
+        <!-- Input: latitude and longitude -->
+        <field id="latitude" type="string" value="34.6645" />
+        <field id="longitude" type="string" value="-83.0968" />
+        <!-- Output: weather data -->
+        <field id="temperature" type="string" />
+        <field id="weatherCode" type="integer" />
+        <field id="weatherDescription" type="string" />
+        <field id="weatherIcon" type="string" />
+        <!-- Output: error message if any -->
+        <field id="error" type="string" />
+        <!-- Output: success flag -->
+        <field id="success" type="boolean" value="false" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/tasks/WeatherTask.brs" />
+</component>
+

@@ -20,18 +20,19 @@
             color="#0f0f1a"
             opacity="0.97" />
 
+
         <!-- Close hint -->
         <Label
             id="closeHint"
             translation="[1750, 40]"
-            text="✕ BACK"
+            text="BACK"
             font="font:SmallSystemFont"
             color="#666666" />
 
         <!-- Main Content Container -->
         <LayoutGroup
             id="mainContainer"
-            translation="[100, 80]"
+            translation="[100, 60]"
             layoutDirection="horiz"
             itemSpacings="[60]">
 
@@ -39,21 +40,21 @@
             <LayoutGroup
                 id="leftColumn"
                 layoutDirection="vert"
-                itemSpacings="[20]">
+                itemSpacings="[15]">
 
                 <!-- Large Image -->
                 <Rectangle
                     id="imageFrame"
-                    width="500"
-                    height="350"
-                    color="#16213e"
-                    cornerRadius="16">
+                    width="450"
+                    height="320"
+                    color="#1e2a4a"
+                    cornerRadius="12">
 
                     <Poster
                         id="detailPoster"
-                        width="460"
-                        height="310"
-                        translation="[20, 20]"
+                        width="420"
+                        height="290"
+                        translation="[15, 15]"
                         loadDisplayMode="scaleToZoom" />
                 </Rectangle>
 
@@ -61,25 +62,20 @@
                 <LayoutGroup
                     id="quickInfoGroup"
                     layoutDirection="vert"
-                    itemSpacings="[10]">
+                    itemSpacings="[8]">
 
                     <!-- Address Card -->
                     <Rectangle
                         id="addressCard"
-                        width="500"
-                        height="70"
-                        color="#16213e"
+                        width="450"
+                        height="60"
+                        color="#1e2a4a"
                         cornerRadius="8"
                         visible="false">
                         <Label
-                            id="addressIcon"
-                            translation="[15, 12]"
-                            text="📍"
-                            font="font:MediumSystemFont" />
-                        <Label
                             id="addressLabel"
-                            translation="[50, 15]"
-                            width="430"
+                            translation="[15, 10]"
+                            width="420"
                             maxLines="2"
                             font="font:SmallSystemFont"
                             color="#cccccc" />
@@ -88,19 +84,14 @@
                     <!-- Phone Card -->
                     <Rectangle
                         id="phoneCard"
-                        width="500"
-                        height="50"
-                        color="#16213e"
+                        width="450"
+                        height="45"
+                        color="#1e2a4a"
                         cornerRadius="8"
                         visible="false">
                         <Label
-                            id="phoneIcon"
-                            translation="[15, 10]"
-                            text="📞"
-                            font="font:MediumSystemFont" />
-                        <Label
                             id="phoneLabel"
-                            translation="[50, 13]"
+                            translation="[15, 12]"
                             font="font:SmallSystemFont"
                             color="#cccccc" />
                     </Rectangle>
@@ -108,20 +99,15 @@
                     <!-- Hours Card -->
                     <Rectangle
                         id="hoursCard"
-                        width="500"
-                        height="50"
-                        color="#16213e"
+                        width="450"
+                        height="45"
+                        color="#1e2a4a"
                         cornerRadius="8"
                         visible="false">
                         <Label
-                            id="hoursIcon"
-                            translation="[15, 10]"
-                            text="🕐"
-                            font="font:MediumSystemFont" />
-                        <Label
                             id="hoursLabel"
-                            translation="[50, 13]"
-                            width="430"
+                            translation="[15, 12]"
+                            width="420"
                             font="font:SmallSystemFont"
                             color="#cccccc" />
                     </Rectangle>
@@ -129,19 +115,14 @@
                     <!-- Distance Card -->
                     <Rectangle
                         id="distanceCard"
-                        width="500"
-                        height="50"
-                        color="#16213e"
+                        width="450"
+                        height="45"
+                        color="#1e2a4a"
                         cornerRadius="8"
                         visible="false">
                         <Label
-                            id="distanceIcon"
-                            translation="[15, 10]"
-                            text="🚗"
-                            font="font:MediumSystemFont" />
-                        <Label
                             id="distanceLabel"
-                            translation="[50, 13]"
+                            translation="[15, 12]"
                             font="font:SmallSystemFont"
                             color="#cccccc" />
                     </Rectangle>
@@ -152,7 +133,7 @@
             <LayoutGroup
                 id="rightColumn"
                 layoutDirection="vert"
-                itemSpacings="[15]">
+                itemSpacings="[12]">
 
                 <!-- Title -->
                 <Label
@@ -196,15 +177,15 @@
                 <!-- Divider -->
                 <Rectangle
                     id="divider"
-                    width="1150"
+                    width="1200"
                     height="1"
                     color="#333333" />
 
                 <!-- Full Description -->
                 <Label
                     id="fullDescription"
-                    width="1150"
-                    maxLines="6"
+                    width="1200"
+                    maxLines="4"
                     font="font:SmallSystemFont"
                     color="#cccccc"
                     wrap="true" />
@@ -212,21 +193,15 @@
                 <!-- Tips Section -->
                 <Rectangle
                     id="tipsCard"
-                    width="1150"
-                    height="80"
+                    width="1200"
+                    height="50"
                     color="#1a3a2e"
                     cornerRadius="8"
                     visible="false">
                     <Label
-                        id="tipsIcon"
-                        translation="[15, 15]"
-                        text="💡 TIP"
-                        font="font:SmallBoldSystemFont"
-                        color="#4ade80" />
-                    <Label
                         id="tipsLabel"
-                        translation="[15, 40]"
-                        width="1120"
+                        translation="[15, 12]"
+                        width="1170"
                         maxLines="2"
                         font="font:SmallSystemFont"
                         color="#a7f3d0" />
@@ -235,21 +210,29 @@
                 <!-- Tags -->
                 <Label
                     id="tagsLabel"
-                    width="1150"
+                    width="1200"
                     font="font:SmallestSystemFont"
                     color="#666666"
                     visible="false" />
 
-                <!-- Scrollable Details Section -->
-                <ScrollableText
-                    id="detailsScroll"
-                    width="1150"
-                    height="300"
-                    font="font:SmallSystemFont"
-                    color="#aaaaaa"
-                    visible="false" />
+                <!-- Extended Details - appears right after other content -->
+                <Rectangle
+                    id="bottomSection"
+                    width="1200"
+                    height="250"
+                    color="#1e2a4a"
+                    cornerRadius="8"
+                    visible="false">
+                    <Label
+                        id="extendedDetails"
+                        translation="[20, 15]"
+                        width="1160"
+                        maxLines="12"
+                        wrap="true"
+                        font="font:SmallSystemFont"
+                        color="#cccccc" />
+                </Rectangle>
             </LayoutGroup>
         </LayoutGroup>
     </children>
 </component>
-
