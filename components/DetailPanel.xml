@@ -68,7 +68,7 @@
                     <Rectangle
                         id="addressCard"
                         width="450"
-                        height="60"
+                        height="80"
                         color="#1e2a4a"
                         cornerRadius="8"
                         visible="false">
@@ -76,7 +76,8 @@
                             id="addressLabel"
                             translation="[15, 10]"
                             width="420"
-                            maxLines="2"
+                            maxLines="3"
+                            wrap="true"
                             font="font:SmallSystemFont"
                             color="#cccccc" />
                     </Rectangle>
@@ -92,6 +93,7 @@
                         <Label
                             id="phoneLabel"
                             translation="[15, 12]"
+                            width="420"
                             font="font:SmallSystemFont"
                             color="#cccccc" />
                     </Rectangle>
@@ -100,14 +102,16 @@
                     <Rectangle
                         id="hoursCard"
                         width="450"
-                        height="45"
+                        height="70"
                         color="#1e2a4a"
                         cornerRadius="8"
                         visible="false">
                         <Label
                             id="hoursLabel"
-                            translation="[15, 12]"
+                            translation="[15, 10]"
                             width="420"
+                            maxLines="3"
+                            wrap="true"
                             font="font:SmallSystemFont"
                             color="#cccccc" />
                     </Rectangle>
@@ -123,6 +127,7 @@
                         <Label
                             id="distanceLabel"
                             translation="[15, 12]"
+                            width="420"
                             font="font:SmallSystemFont"
                             color="#cccccc" />
                     </Rectangle>
@@ -139,6 +144,8 @@
                 <Label
                     id="detailTitle"
                     width="1200"
+                    maxLines="2"
+                    wrap="true"
                     font="font:LargeBoldSystemFont"
                     color="#e94560" />
 
@@ -146,6 +153,8 @@
                 <Label
                     id="shortDescription"
                     width="1200"
+                    maxLines="3"
+                    wrap="true"
                     font="font:MediumSystemFont"
                     color="#ffffff" />
 
@@ -185,7 +194,7 @@
                 <Label
                     id="fullDescription"
                     width="1200"
-                    maxLines="4"
+                    maxLines="8"
                     font="font:SmallSystemFont"
                     color="#cccccc"
                     wrap="true" />
@@ -194,7 +203,7 @@
                 <Rectangle
                     id="tipsCard"
                     width="1200"
-                    height="50"
+                    height="90"
                     color="#1a3a2e"
                     cornerRadius="8"
                     visible="false">
@@ -202,7 +211,8 @@
                         id="tipsLabel"
                         translation="[15, 12]"
                         width="1170"
-                        maxLines="2"
+                        maxLines="4"
+                        wrap="true"
                         font="font:SmallSystemFont"
                         color="#a7f3d0" />
                 </Rectangle>
@@ -211,6 +221,8 @@
                 <Label
                     id="tagsLabel"
                     width="1200"
+                    maxLines="2"
+                    wrap="true"
                     font="font:SmallestSystemFont"
                     color="#666666"
                     visible="false" />
@@ -219,7 +231,7 @@
                 <Rectangle
                     id="bottomSection"
                     width="1200"
-                    height="250"
+                    height="300"
                     color="#1e2a4a"
                     cornerRadius="8"
                     visible="false">
@@ -227,9 +239,9 @@
                         id="extendedDetails"
                         translation="[20, 15]"
                         width="1160"
-                        maxLines="12"
+                        maxLines="15"
                         wrap="true"
-                        font="font:SmallSystemFont"
+                        font="font:MediumSystemFont"
                         color="#cccccc" />
                 </Rectangle>
             </LayoutGroup>
