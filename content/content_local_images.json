@@ -1,0 +1,274 @@
+{
+  "channel": {
+    "name": "Shawnee",
+    "propertyAddress": "103 Shawnee Drive, Westminster, SC 29693",
+    "accentColor": "#3b5998",
+    "lastUpdated": "2024-12-17"
+  },
+  "categories": [
+    {
+      "id": "house-info",
+      "title": "House Information",
+      "description": "Everything you need to know about your stay",
+      "sortOrder": 1,
+      "items": [
+        {
+          "id": "wifi",
+          "title": "WiFi Information",
+          "shortDescription": "Connect to the internet",
+          "description": "Stay connected during your visit! The WiFi network covers the entire property including the patio and deck areas.",
+          "image": "pkg:/images/house/wifi.png",
+          "details": {
+            "networkName": "UCFiber_Evans",
+            "password": "CindyIsGreat"
+          },
+          "tips": "For the best signal strength, connect near the living room router.",
+          "isEmergency": false,
+          "sortOrder": 1
+        },
+        {
+          "id": "emergency",
+          "title": "Emergency Contacts",
+          "shortDescription": "Important numbers",
+          "description": "Keep these numbers handy in case of emergency.",
+          "image": "pkg:/images/house/emergency.png",
+          "contacts": [
+            {"name": "Emergency Services", "phone": "911", "available": "24/7"},
+            {"name": "Property Manager", "phone": "(555) 123-4567", "available": "8am-10pm"},
+            {"name": "Poison Control", "phone": "1-800-222-1222", "available": "24/7"}
+          ],
+          "tips": "Save the property manager number to your phone.",
+          "isEmergency": true,
+          "sortOrder": 0
+        },
+        {
+          "id": "checkout",
+          "title": "Check-in & Check-out",
+          "shortDescription": "Arrival and departure times",
+          "description": "Please review our check-in and check-out procedures to ensure a smooth stay.",
+          "image": "pkg:/images/house/checkin.png",
+          "details": {
+            "checkInTime": "3:00 PM",
+            "checkOutTime": "11:00 AM",
+            "keyLocation": "Lockbox on front door - code sent via email"
+          },
+          "tips": "Please start laundry before leaving - no need to fold!",
+          "isEmergency": false,
+          "sortOrder": 2
+        },
+        {
+          "id": "house-rules",
+          "title": "House Rules",
+          "shortDescription": "Please respect our home",
+          "description": "A few simple rules to ensure everyone has a great experience.",
+          "image": "pkg:/images/house/rules.png",
+          "rules": [
+            "No smoking anywhere on property",
+            "No pets unless pre-approved",
+            "No parties or events",
+            "Quiet hours: 10pm - 8am"
+          ],
+          "isEmergency": false,
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "id": "places-to-eat",
+      "title": "Places To Eat",
+      "description": "Local restaurants and dining",
+      "sortOrder": 2,
+      "items": [
+        {
+          "id": "spotted-pig",
+          "title": "The Spotted Pig BBQ",
+          "shortDescription": "Authentic Southern barbecue",
+          "description": "A local favorite offering authentic Southern barbecue with a variety of smoked meats and classic sides. Known for generous portions and friendly service.",
+          "image": "pkg:/images/dining/spotted-pig.png",
+          "address": "15491 SC-11, Fair Play, SC 29643",
+          "distance": "8 miles",
+          "phone": "(864) 972-9989",
+          "hours": "Thu-Sat: 11am-8pm, Sun: 11am-3pm",
+          "priceRange": "$$",
+          "cuisineType": "BBQ",
+          "rating": 4.4,
+          "tags": ["bbq", "casual", "local-favorite"],
+          "isEmergency": false,
+          "sortOrder": 1
+        },
+        {
+          "id": "tacon-madre",
+          "title": "Taco'n Madre Grill",
+          "shortDescription": "Mexican cuisine with lake views",
+          "description": "Authentic Mexican restaurant serving fresh tacos, burritos, and traditional favorites. Great atmosphere and friendly staff.",
+          "image": "pkg:/images/dining/tacon-madre.png",
+          "address": "Lake Hartwell Area, Westminster, SC",
+          "distance": "5 miles",
+          "hours": "Daily: 11am-9pm",
+          "priceRange": "$$",
+          "cuisineType": "Mexican",
+          "rating": 4.5,
+          "tags": ["mexican", "tacos", "casual"],
+          "isEmergency": false,
+          "sortOrder": 2
+        },
+        {
+          "id": "overlook",
+          "title": "The Overlook at Chickasaw Point",
+          "shortDescription": "Fine dining with stunning views",
+          "description": "Upscale dining at Chickasaw Point featuring American cuisine with beautiful views of Lake Hartwell. Perfect for special occasions.",
+          "image": "pkg:/images/dining/overlook.png",
+          "address": "Chickasaw Point, Westminster, SC 29693",
+          "distance": "3 miles",
+          "hours": "Wed-Sun: 5pm-9pm",
+          "priceRange": "$$$",
+          "cuisineType": "American",
+          "rating": 4.6,
+          "tags": ["fine-dining", "lake-views", "special-occasion"],
+          "reservationRequired": true,
+          "isEmergency": false,
+          "sortOrder": 3
+        },
+        {
+          "id": "peace-of-pie",
+          "title": "Peace of Pie on Hartwell",
+          "shortDescription": "Pizza and subs with lake vibes",
+          "description": "Cozy pizzeria offering a variety of pizzas, subs, and salads. Known for their creative pizza combinations and relaxed lakeside atmosphere.",
+          "image": "pkg:/images/dining/peace-of-pie.png",
+          "address": "Fair Play, SC 29643",
+          "distance": "10 miles",
+          "hours": "Tue-Sun: 11am-8pm",
+          "priceRange": "$$",
+          "cuisineType": "Pizza",
+          "rating": 4.5,
+          "tags": ["pizza", "casual", "family-friendly"],
+          "isEmergency": false,
+          "sortOrder": 4
+        },
+        {
+          "id": "tillys-tiki",
+          "title": "Tilly's Tiki Bar and Grill",
+          "shortDescription": "Waterfront dining - boat or car!",
+          "description": "Fun tiki-themed bar and grill right on Lake Hartwell. Great burgers, seafood, and tropical drinks. Features a boat dock for easy water access.",
+          "image": "pkg:/images/dining/tillys-tiki.png",
+          "address": "Lake Hartwell, Anderson, SC",
+          "distance": "15 miles by car",
+          "hours": "Daily: 11am-10pm (seasonal)",
+          "priceRange": "$$",
+          "cuisineType": "American/Seafood",
+          "rating": 4.3,
+          "tags": ["waterfront", "boat-dock", "tiki-bar", "casual"],
+          "tips": "Quicker to take the boat than the car! Dock your boat and walk right up.",
+          "isEmergency": false,
+          "sortOrder": 5
+        }
+      ]
+    },
+    {
+      "id": "things-to-do",
+      "title": "Things To Do",
+      "description": "Local attractions and activities",
+      "sortOrder": 3,
+      "items": [
+        {
+          "id": "chickasaw-golf",
+          "title": "Chickasaw Point Golf Course",
+          "shortDescription": "18-hole championship course",
+          "description": "Beautiful 18-hole golf course in the Chickasaw Point community featuring stunning lake views and challenging play for all skill levels.",
+          "image": "pkg:/images/activities/chickasaw-golf.png",
+          "address": "Chickasaw Point, Westminster, SC 29693",
+          "distance": "3 miles",
+          "phone": "(864) 972-9989",
+          "hours": "Dawn to Dusk",
+          "priceRange": "$$",
+          "rating": 4.4,
+          "tags": ["golf", "outdoor", "lake-views"],
+          "amenities": ["Pro Shop", "Cart Rental", "Driving Range"],
+          "reservationRequired": true,
+          "tips": "Book tee times in advance, especially on weekends.",
+          "isEmergency": false,
+          "sortOrder": 1
+        },
+        {
+          "id": "tallulah-gorge",
+          "title": "Tallulah Gorge State Park",
+          "shortDescription": "Spectacular canyon and waterfalls",
+          "description": "One of the most spectacular canyons in the eastern U.S. Features a 2-mile long, 1,000-foot deep gorge with several waterfalls. Hiking trails range from easy rim walks to challenging gorge floor access.",
+          "image": "pkg:/images/activities/tallulah-gorge.png",
+          "address": "338 Jane Hurt Yarn Road, Tallulah Falls, GA 30573",
+          "distance": "25 miles",
+          "phone": "(706) 754-7981",
+          "hours": "Daily: 8am-Dark",
+          "priceRange": "$5 parking",
+          "rating": 4.8,
+          "tags": ["hiking", "waterfalls", "nature", "photography"],
+          "amenities": ["Visitor Center", "Restrooms", "Picnic Areas", "Suspension Bridge"],
+          "tips": "Get a free gorge floor permit early - they're limited to 100 per day. The suspension bridge offers amazing views!",
+          "isEmergency": false,
+          "sortOrder": 2
+        },
+        {
+          "id": "hartwell-state-park",
+          "title": "Lake Hartwell State Park",
+          "shortDescription": "Camping, fishing, and lake fun",
+          "description": "Beautiful state park on the shores of Lake Hartwell offering camping, fishing, boating, and swimming. Perfect for a day trip or overnight adventure.",
+          "image": "pkg:/images/activities/hartwell-state-park.png",
+          "address": "19138-A SC Hwy 11 S, Fair Play, SC 29643",
+          "distance": "12 miles",
+          "phone": "(864) 972-3352",
+          "hours": "Daily: 6am-9pm",
+          "priceRange": "$5 per adult",
+          "rating": 4.6,
+          "tags": ["camping", "fishing", "boating", "swimming", "family-friendly"],
+          "amenities": ["Boat Ramp", "Fishing Pier", "Camping", "Picnic Shelters", "Playground"],
+          "tips": "Rent a kayak or paddleboard from the park office. Sunset views are incredible!",
+          "isEmergency": false,
+          "sortOrder": 3
+        },
+        {
+          "id": "wildlife-safari",
+          "title": "Lake Hartwell Wildlife Safari",
+          "shortDescription": "Drive-through animal adventure",
+          "description": "Exciting drive-through safari experience where you can see and feed exotic animals from your car. Great for families with kids of all ages.",
+          "image": "pkg:/images/activities/wildlife-safari.png",
+          "address": "Lake Hartwell Area, SC",
+          "distance": "20 miles",
+          "hours": "Sat-Sun: 10am-5pm (seasonal)",
+          "priceRange": "$$",
+          "rating": 4.5,
+          "tags": ["family-friendly", "animals", "outdoor", "kids"],
+          "amenities": ["Gift Shop", "Restrooms", "Animal Feed Available"],
+          "tips": "Bring extra change for animal feed. Early morning visits are less crowded.",
+          "isEmergency": false,
+          "sortOrder": 4
+        }
+      ]
+    },
+    {
+      "id": "emergency-services",
+      "title": "Emergency Services",
+      "description": "Hospitals and emergency care",
+      "sortOrder": 4,
+      "items": [
+        {
+          "id": "st-marys",
+          "title": "St. Mary's Sacred Heart Hospital",
+          "shortDescription": "Nearest hospital with ER",
+          "description": "Full-service hospital with 24/7 emergency room. Part of the St. Mary's Health Care System providing comprehensive medical services.",
+          "image": "pkg:/images/services/st-marys-hospital.png",
+          "address": "367 Clear Creek Pkwy, Lavonia, GA 30553",
+          "distance": "15 miles",
+          "phone": "(706) 356-7800",
+          "hours": "Emergency Room: 24/7",
+          "rating": 4.2,
+          "tags": ["hospital", "emergency", "24-hour"],
+          "amenities": ["Emergency Room", "Surgery", "Imaging", "Laboratory"],
+          "tips": "Take GA-17 South - it's the fastest route from the house.",
+          "isEmergency": true,
+          "sortOrder": 1
+        }
+      ]
+    }
+  ]
+}
+
