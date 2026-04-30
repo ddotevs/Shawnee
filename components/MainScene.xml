@@ -233,7 +233,7 @@
 
             <Label
                 id="qrLabel"
-                text="Scan for Photos"
+                text="Upload Photos"
                 font="font:SmallestSystemFont"
                 color="#aaaaaa"
                 horizAlign="center" />
