@@ -4,12 +4,16 @@
 ' ****************************************************************
 
 ' ============================================================
-' CONFIGURATION - Set your GitHub raw URL here
+' CONFIGURATION
 ' ============================================================
-' Replace with your actual GitHub raw URL after pushing to repo:
-' Format: https://raw.githubusercontent.com/USERNAME/REPO/BRANCH/content/content.json
+' Content JSON URL (GitHub-hosted)
 function getContentUrl() as String
     return "https://raw.githubusercontent.com/ddotevs/Shawnee/main/content/content.json"
+end function
+
+' Cloudflare Worker URL for Google Drive photo slideshow
+function getSlideshowWorkerUrl() as String
+    return "https://shawnee-photos-worker.ddotevs.workers.dev"
 end function
 ' ============================================================
 
@@ -24,7 +28,15 @@ sub init()
     m.loadingGroup = m.top.findNode("loadingGroup")
     m.loadingText = m.top.findNode("loadingText")
     m.channelTitle = m.top.findNode("channelTitle")
-    m.welcomeMessage = m.top.findNode("welcomeMessage")
+
+    ' Weather and Lake Level UI components
+    m.weatherTemp = m.top.findNode("weatherTemp")
+    m.weatherDesc = m.top.findNode("weatherDesc")
+    m.lakeLevel = m.top.findNode("lakeLevel")
+    m.lakeBelowPool = m.top.findNode("lakeBelowPool")
+
+    ' Slideshow background component
+    m.slideshowBackground = m.top.findNode("slideshowBackground")
 
     ' State management
     m.currentFocus = "categories" ' "categories", "items", or "detail"
@@ -40,6 +52,20 @@ sub init()
 
     ' Load content
     loadContent()
+
+    ' Load weather and lake level data
+    loadWeather()
+    loadLakeLevel()
+
+    ' Load slideshow photos
+    loadSlideshow()
+
+    ' Set up a refresh timer for slideshow (every 30 minutes)
+    m.slideshowRefreshTimer = CreateObject("roSGNode", "Timer")
+    m.slideshowRefreshTimer.repeat = true
+    m.slideshowRefreshTimer.duration = 1800
+    m.slideshowRefreshTimer.observeField("fire", "onSlideshowRefresh")
+    m.slideshowRefreshTimer.control = "start"
 end sub
 
 ' ****************************************************************
@@ -86,9 +112,6 @@ sub onContentLoaded()
     if content.channel <> invalid
         if content.channel.name <> invalid
             m.channelTitle.text = content.channel.name
-        end if
-        if content.channel.welcomeMessage <> invalid
-            m.welcomeMessage.text = content.channel.welcomeMessage
         end if
     end if
 
@@ -273,3 +296,98 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 
     return handled
 end function
+
+' ****************************************************************
+' * Weather Loading
+' ****************************************************************
+
+sub loadWeather()
+    print "MainScene: Loading weather data..."
+    
+    m.weatherTask = CreateObject("roSGNode", "WeatherTask")
+    ' Coordinates for zip 29693 (Westminster, SC area)
+    m.weatherTask.latitude = "34.6645"
+    m.weatherTask.longitude = "-83.0968"
+    
+    m.weatherTask.observeField("success", "onWeatherLoaded")
+    m.weatherTask.control = "run"
+end sub
+
+sub onWeatherLoaded()
+    if m.weatherTask.success
+        m.weatherTemp.text = m.weatherTask.temperature
+        m.weatherDesc.text = m.weatherTask.weatherDescription
+        print "MainScene: Weather updated - "; m.weatherTask.temperature
+    else
+        m.weatherTemp.text = "N/A"
+        m.weatherDesc.text = "Unable to load"
+        print "MainScene: Weather error - "; m.weatherTask.error
+    end if
+end sub
+
+' ****************************************************************
+' * Lake Level Loading
+' ****************************************************************
+
+sub loadLakeLevel()
+    print "MainScene: Loading lake level data..."
+    
+    m.lakeLevelTask = CreateObject("roSGNode", "LakeLevelTask")
+    m.lakeLevelTask.url = "http://www.mylakehartwell.com/level"
+    
+    m.lakeLevelTask.observeField("success", "onLakeLevelLoaded")
+    m.lakeLevelTask.control = "run"
+end sub
+
+sub onLakeLevelLoaded()
+    if m.lakeLevelTask.success
+        m.lakeLevel.text = m.lakeLevelTask.waterLevel
+        
+        ' Format the below pool message
+        if m.lakeLevelTask.belowFullPool <> invalid and m.lakeLevelTask.belowFullPool <> ""
+            m.lakeBelowPool.text = m.lakeLevelTask.belowFullPool + " below full pool"
+        else
+            m.lakeBelowPool.text = "Full pool: 660.00 ft"
+        end if
+        
+        print "MainScene: Lake level updated - "; m.lakeLevelTask.waterLevel
+    else
+        m.lakeLevel.text = "N/A"
+        m.lakeBelowPool.text = "Unable to load"
+        print "MainScene: Lake level error - "; m.lakeLevelTask.error
+    end if
+end sub
+
+' ****************************************************************
+' * Slideshow Loading
+' ****************************************************************
+
+sub loadSlideshow()
+    print "MainScene: Loading slideshow photos..."
+
+    m.slideshowTask = CreateObject("roSGNode", "SlideshowTask")
+    m.slideshowTask.workerUrl = getSlideshowWorkerUrl()
+
+    m.slideshowTask.observeField("success", "onSlideshowLoaded")
+    m.slideshowTask.control = "run"
+end sub
+
+sub onSlideshowLoaded()
+    if m.slideshowTask.success
+        photos = m.slideshowTask.photoUrls
+        if photos <> invalid and photos.count() > 0
+            m.slideshowBackground.photoUrls = photos
+            print "MainScene: Slideshow loaded - "; photos.count().toStr(); " photos"
+        end if
+    else
+        ' Slideshow is non-critical; just log the error
+        print "MainScene: Slideshow error - "; m.slideshowTask.error
+    end if
+end sub
+
+sub onSlideshowRefresh()
+    ' Periodically re-fetch photos so new uploads appear
+    print "MainScene: Refreshing slideshow photos..."
+    loadSlideshow()
+end sub
+

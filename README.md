@@ -1,5 +1,6 @@
 # Shawnee
 
+
 A dynamic, read-only Roku channel for displaying local information - perfect for vacation rentals, Airbnb properties, hotels, or visitor centers.
 
 ## Features

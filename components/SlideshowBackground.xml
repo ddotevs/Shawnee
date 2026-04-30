@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ************************************************************
+     * SlideshowBackground.xml - Full-screen photo slideshow
+     * Crossfades between album photos on a timer
+     ************************************************************ -->
+
+<component name="SlideshowBackground" extends="Group">
+    <interface>
+        <!-- Input: array of photo URL strings -->
+        <field id="photoUrls" type="array" onChange="onPhotoUrlsChanged" />
+        <!-- Input: seconds between transitions (default 10) -->
+        <field id="interval" type="integer" value="10" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/SlideshowBackground.brs" />
+
+    <children>
+        <!-- Two full-screen posters for crossfade -->
+        <Poster
+            id="posterA"
+            width="1920"
+            height="1080"
+            loadDisplayMode="scaleToZoom"
+            opacity="1.0" />
+
+        <Poster
+            id="posterB"
+            width="1920"
+            height="1080"
+            loadDisplayMode="scaleToZoom"
+            opacity="0.0" />
+    </children>
+</component>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ************************************************************
+     * SlideshowTask.xml - Task to fetch photo URLs from Cloudflare Worker
+     * Returns array of image URLs for the slideshow background
+     ************************************************************ -->
+
+<component name="SlideshowTask" extends="Task">
+    <interface>
+        <!-- Input: Cloudflare Worker URL -->
+        <field id="workerUrl" type="string" />
+        <!-- Output: array of photo URL strings -->
+        <field id="photoUrls" type="array" />
+        <!-- Output: success flag -->
+        <field id="success" type="boolean" value="false" />
+        <!-- Output: error message if any -->
+        <field id="error" type="string" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/tasks/SlideshowTask.brs" />
+</component>
