@@ -13,6 +13,7 @@
 # Roku build artifacts
 out/
 *.zip
+!shawnee.zip
 *.pkg
 
 # Logs
