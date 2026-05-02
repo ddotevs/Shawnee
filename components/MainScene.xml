@@ -145,7 +145,7 @@
         <!-- Category Menu (Left Side) -->
         <LabelList
             id="categoryList"
-            translation="[80, 200]"
+            translation="[80, 210]"
             itemSize="[350, 65]"
             numRows="5"
             textHorizAlign="left"
@@ -157,7 +157,7 @@
         <!-- Vertical separator line -->
         <Rectangle
             id="separator"
-            translation="[460, 200]"
+            translation="[460, 210]"
             width="2"
             height="550"
             color="#333333" />
@@ -165,7 +165,7 @@
         <!-- Items Grid (Right Side) -->
         <MarkupGrid
             id="itemsGrid"
-            translation="[500, 200]"
+            translation="[500, 210]"
             itemSize="[320, 220]"
             itemSpacing="[30, 30]"
             numColumns="4"
@@ -204,21 +204,21 @@
             id="qrCard"
             translation="[1700, 30]"
             width="190"
-            height="220"
+            height="150"
             color="#16213e"
             cornerRadius="12">
 
             <LayoutGroup
                 id="qrGroup"
-                translation="[20, 15]"
+                translation="[20, 10]"
                 layoutDirection="vert"
                 horizAlignment="center"
-                itemSpacings="[5]">
+                itemSpacings="[3]">
 
                 <Poster
                     id="albumQrCode"
-                    width="150"
-                    height="150"
+                    width="110"
+                    height="110"
                     uri="pkg:/images/icons/album_qr.png"
                     loadDisplayMode="scaleToFit"
                     blendColor="#ffffff" />
