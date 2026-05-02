@@ -47,13 +47,8 @@ sub onContentChanged()
         m.itemPoster.uri = "pkg:/images/placeholder.png"
     end if
 
-    ' Check for emergency flag
-    itemData = itemContent.getField("itemData")
-    if itemData <> invalid and itemData.isEmergency = true
-        m.emergencyBadge.visible = true
-    else
-        m.emergencyBadge.visible = false
-    end if
+    ' Emergency badge disabled
+    m.emergencyBadge.visible = false
 end sub
 
 sub onFocusChanged()

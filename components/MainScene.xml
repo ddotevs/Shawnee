@@ -210,7 +210,7 @@
 
             <LayoutGroup
                 id="qrGroup"
-                translation="[125, 10]"
+                translation="[160, 10]"
                 layoutDirection="vert"
                 horizAlignment="center"
                 itemSpacings="[3]">
@@ -229,7 +229,7 @@
                     font="font:SmallestSystemFont"
                     color="#aaaaaa"
                     horizAlign="center"
-                    width="180" />
+                    width="110" />
             </LayoutGroup>
         </Rectangle>
     </children>
