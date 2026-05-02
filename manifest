@@ -8,7 +8,7 @@ minor_version=0
 build_version=00001
 
 # Channel Properties
-splash_color=#1a1a2e
+splash_color=#ffffff
 splash_min_time=1000
 
 # Splash Screens (full-screen logo)
