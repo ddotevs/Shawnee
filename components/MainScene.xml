@@ -33,7 +33,7 @@
             height="300"
             translation="[0, 780]"
             color="#0f0f1a"
-            opacity="0.3" />
+            opacity="0.4" />
 
         <!-- Header Section -->
         <LayoutGroup
@@ -219,7 +219,7 @@
         <!-- QR Code for Google Photos album access -->
         <LayoutGroup
             id="qrGroup"
-            translation="[1720, 880]"
+            translation="[1720, 790]"
             layoutDirection="vert"
             horizAlignment="center"
             itemSpacings="[5]">
