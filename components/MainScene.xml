@@ -42,13 +42,6 @@
             layoutDirection="vert"
             itemSpacings="[5]">
 
-            <Poster
-                id="channelLogo"
-                width="200"
-                height="80"
-                uri="pkg:/images/icons/logo_original.png"
-                loadDisplayMode="scaleToFit" />
-
             <Label
                 id="channelTitle"
                 text="Shawnee"
