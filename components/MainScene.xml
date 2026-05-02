@@ -16,7 +16,7 @@
         <!-- Slideshow Background (photos from Google Photos album) -->
         <SlideshowBackground
             id="slideshowBackground"
-            interval="10" />
+            interval="30" />
 
         <!-- Dark overlay so UI text remains readable -->
         <Rectangle
@@ -33,7 +33,7 @@
             height="300"
             translation="[0, 780]"
             color="#0f0f1a"
-            opacity="0.8" />
+            opacity="0.3" />
 
         <!-- Header Section -->
         <LayoutGroup
@@ -41,6 +41,13 @@
             translation="[80, 40]"
             layoutDirection="vert"
             itemSpacings="[5]">
+
+            <Poster
+                id="channelLogo"
+                width="200"
+                height="80"
+                uri="pkg:/images/icons/logo_original.png"
+                loadDisplayMode="scaleToFit" />
 
             <Label
                 id="channelTitle"
