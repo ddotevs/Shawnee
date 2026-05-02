@@ -208,18 +208,10 @@
                 horizAlign="center" />
         </LayoutGroup>
 
-        <!-- Footer -->
-        <Label
-            id="footerText"
-            translation="[80, 1000]"
-            text="LEFT/RIGHT: Categories   |   UP/DOWN: Items   |   OK: Select   |   BACK: Return"
-            font="font:SmallSystemFont"
-            color="#555555" />
-
         <!-- QR Code for Google Photos album access -->
         <LayoutGroup
             id="qrGroup"
-            translation="[1720, 790]"
+            translation="[1720, 895]"
             layoutDirection="vert"
             horizAlignment="center"
             itemSpacings="[5]">
