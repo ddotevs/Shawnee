@@ -26,15 +26,6 @@
             color="#1a1a2e"
             opacity="0.65" />
 
-        <!-- Gradient overlay for depth at bottom -->
-        <Rectangle
-            id="gradientOverlay"
-            width="1920"
-            height="300"
-            translation="[0, 780]"
-            color="#0f0f1a"
-            opacity="0.4" />
-
         <!-- Header Section -->
         <LayoutGroup
             id="headerGroup"
@@ -208,10 +199,10 @@
                 horizAlign="center" />
         </LayoutGroup>
 
-        <!-- QR Code for Google Photos album access -->
+        <!-- QR Code for Google Photos album access (top right) -->
         <LayoutGroup
             id="qrGroup"
-            translation="[1720, 895]"
+            translation="[1720, 40]"
             layoutDirection="vert"
             horizAlignment="center"
             itemSpacings="[5]">
