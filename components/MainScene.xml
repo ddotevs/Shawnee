@@ -200,26 +200,36 @@
         </LayoutGroup>
 
         <!-- QR Code for Google Photos album access (top right) -->
-        <LayoutGroup
-            id="qrGroup"
-            translation="[1720, 40]"
-            layoutDirection="vert"
-            horizAlignment="center"
-            itemSpacings="[5]">
+        <Rectangle
+            id="qrCard"
+            translation="[1700, 30]"
+            width="190"
+            height="220"
+            color="#16213e"
+            cornerRadius="12">
 
-            <Poster
-                id="albumQrCode"
-                width="150"
-                height="150"
-                uri="pkg:/images/icons/album_qr.png"
-                loadDisplayMode="scaleToFit" />
+            <LayoutGroup
+                id="qrGroup"
+                translation="[20, 15]"
+                layoutDirection="vert"
+                horizAlignment="center"
+                itemSpacings="[5]">
 
-            <Label
-                id="qrLabel"
-                text="Upload Photos"
-                font="font:SmallestSystemFont"
-                color="#aaaaaa"
-                horizAlign="center" />
-        </LayoutGroup>
+                <Poster
+                    id="albumQrCode"
+                    width="150"
+                    height="150"
+                    uri="pkg:/images/icons/album_qr.png"
+                    loadDisplayMode="scaleToFit"
+                    blendColor="#ffffff" />
+
+                <Label
+                    id="qrLabel"
+                    text="Upload Photos"
+                    font="font:SmallestSystemFont"
+                    color="#aaaaaa"
+                    horizAlign="center" />
+            </LayoutGroup>
+        </Rectangle>
     </children>
 </component>
