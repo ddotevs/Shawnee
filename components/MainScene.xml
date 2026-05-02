@@ -228,7 +228,8 @@
                     text="Upload Photos"
                     font="font:SmallestSystemFont"
                     color="#aaaaaa"
-                    horizAlign="center" />
+                    horizAlign="center"
+                    width="110" />
             </LayoutGroup>
         </Rectangle>
     </children>
