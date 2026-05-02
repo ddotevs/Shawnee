@@ -202,15 +202,15 @@
         <!-- QR Code for Google Photos album access (top right) -->
         <Rectangle
             id="qrCard"
-            translation="[1700, 30]"
-            width="190"
+            translation="[1440, 30]"
+            width="430"
             height="150"
             color="#16213e"
             cornerRadius="12">
 
             <LayoutGroup
                 id="qrGroup"
-                translation="[20, 10]"
+                translation="[160, 10]"
                 layoutDirection="vert"
                 horizAlignment="center"
                 itemSpacings="[3]">
