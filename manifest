@@ -11,9 +11,15 @@ build_version=00001
 splash_color=#1a1a2e
 splash_min_time=1000
 
+# Splash Screens (full-screen logo)
+splash_screen_fhd=pkg:/images/splash_fhd.png
+splash_screen_hd=pkg:/images/splash_hd.png
+
 # Channel Icons
 mm_icon_focus_fhd=pkg:/images/icons/channel-poster_fhd.png
 mm_icon_side_fhd=pkg:/images/icons/channel-poster_side.png
+mm_icon_focus_hd=pkg:/images/icons/channel-poster_hd.png
+mm_icon_side_hd=pkg:/images/icons/channel-poster_side_hd.png
 
 # Resolution Support
 ui_resolutions=hd,fhd
