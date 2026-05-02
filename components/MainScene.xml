@@ -63,7 +63,7 @@
             <Rectangle
                 id="weatherCard"
                 width="380"
-                height="150"
+                height="170"
                 color="#16213e"
                 cornerRadius="12">
 
@@ -98,7 +98,7 @@
             <Rectangle
                 id="lakeCard"
                 width="480"
-                height="150"
+                height="170"
                 color="#16213e"
                 cornerRadius="12">
 
@@ -204,13 +204,13 @@
             id="qrCard"
             translation="[1440, 30]"
             width="430"
-            height="150"
+            height="170"
             color="#16213e"
             cornerRadius="12">
 
             <LayoutGroup
                 id="qrGroup"
-                translation="[160, 10]"
+                translation="[125, 10]"
                 layoutDirection="vert"
                 horizAlignment="center"
                 itemSpacings="[3]">
@@ -229,7 +229,7 @@
                     font="font:SmallestSystemFont"
                     color="#aaaaaa"
                     horizAlign="center"
-                    width="110" />
+                    width="180" />
             </LayoutGroup>
         </Rectangle>
     </children>

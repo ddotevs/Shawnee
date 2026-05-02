@@ -38,7 +38,7 @@
             {"name": "Poison Control", "phone": "1-800-222-1222", "available": "24/7"}
           ],
           "tips": "Save the property manager number to your phone.",
-          "isEmergency": true,
+          "isEmergency": false,
           "sortOrder": 0
         },
         {
