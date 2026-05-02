@@ -208,29 +208,23 @@
             color="#16213e"
             cornerRadius="12">
 
-            <LayoutGroup
-                id="qrGroup"
+            <Poster
+                id="albumQrCode"
                 translation="[160, 10]"
-                layoutDirection="vert"
-                horizAlignment="center"
-                itemSpacings="[3]">
+                width="110"
+                height="110"
+                uri="pkg:/images/icons/album_qr.png"
+                loadDisplayMode="scaleToFit"
+                blendColor="#ffffff" />
 
-                <Poster
-                    id="albumQrCode"
-                    width="110"
-                    height="110"
-                    uri="pkg:/images/icons/album_qr.png"
-                    loadDisplayMode="scaleToFit"
-                    blendColor="#ffffff" />
-
-                <Label
-                    id="qrLabel"
-                    text="Upload Photos"
-                    font="font:SmallestSystemFont"
-                    color="#aaaaaa"
-                    horizAlign="center"
-                    width="110" />
-            </LayoutGroup>
+            <Label
+                id="qrLabel"
+                translation="[115, 125]"
+                text="Upload Photos"
+                font="font:SmallestSystemFont"
+                color="#aaaaaa"
+                horizAlign="center"
+                width="200" />
         </Rectangle>
     </children>
 </component>
